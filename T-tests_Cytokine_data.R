@@ -1,5 +1,10 @@
 ################################################################################
 
+# Yasmijn Balder
+# 06-06-2020
+
+################################################################################
+
 # Load all packages
 library(missForest)
 
@@ -10,7 +15,7 @@ data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/Final_Data_Imput
 
 # Remove DO.NOT.USE columns
 data <- subset(data, select =-c(DO.NOT.USE..day,DO.NOT.USE.Case_type,
-                                DO.NOT.USE.Microb_a,ï..ID_day,PatientID))
+                                DO.NOT.USE.Microb_a,?..ID_day,PatientID))
 # Remove samples without clinical data
 data <- data[1:251,]      # The last few samples have no clinical data
 data <- data[-c(36,175),] # These two samples have NA in discrete columns

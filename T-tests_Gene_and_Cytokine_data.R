@@ -1,12 +1,17 @@
 ################################################################################
 
+# Yasmijn Balder
+# 23-06-2020
+
+################################################################################
+
 # Load all packages
 library(missForest)
 
 ################################################################################
 
 # Load the data
-data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/Gene_cytokine_common.txt", 
+data <- read.csv("../Provided Data/Gene_cytokine_common.txt", 
                  sep = '\t')
 
 # Select the annotation variables and make a new data frame

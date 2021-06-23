@@ -1,12 +1,17 @@
 ################################################################################
 
+# Yasmijn Balder
+# 06-06-2020
+
+################################################################################
+
 # Load all packages
 library(missForest)
 
 ################################################################################
 
 # Load the data
-data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/common_Gene.txt", 
+data <- read.csv("../Provided Data/common_Gene.txt", 
                  sep = '\t', skip = 1)
 
 # Select the annotation variables and make a new data frame
@@ -52,7 +57,6 @@ data <- as.data.frame(scale(data))
 data <- cbind(data, Annotation)
 
 significance <- NULL
-
 
 ################################################################################
 # Amputation
