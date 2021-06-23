@@ -12,8 +12,8 @@ library(stringr)
 ###############################################################################
 
 # Load the data
-data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/csv_INFECT_export_180604.csv",
-                 sep = ';', dec = ',', check.names = FALSE)
+data <- read.csv("../Provided Data/csv_INFECT_export_180604.csv", sep = ';', 
+                 dec = ',', check.names = FALSE)
 rownames(data) <- data$`Patient ID`
 
 ###############################################################################

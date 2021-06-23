@@ -30,6 +30,4 @@ rownames(cyto.edge) <- cytokines
 View(cyto.edge)
 
 # Save the table as a csv file
-# myPath <- "~/School/WUR/SSB-80336 - Thesis/"
-# setwd(myPath)
-# write.csv(cyto.edge, 'Edge list of cytokines (bacterial data).csv')
+# write.csv(cyto.edge, '../Edge list of cytokines (bacterial data).csv')

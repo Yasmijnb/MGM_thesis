@@ -11,8 +11,7 @@ library(missForest)
 ################################################################################
 
 # Load the data
-data <- read.csv("../Provided Data/Gene_cytokine_common.txt", 
-                 sep = '\t')
+data <- read.csv("../Provided Data/Gene_cytokine_common.txt", sep = '\t')
 
 # Select the annotation variables and make a new data frame
 Annotation <- data[,c('Type_num', 'Sex_y', 'Comorbidity_y', "Amputation_y", 

@@ -6,17 +6,16 @@
 ###############################################################################
 
 library(stringr)
-setwd("~/School/WUR/SSB-80336 - Thesis/Provided data/Merged/")
 
 ###############################################################################
 
 # Clinical (INFECT) + Gene data
 
-clinical_data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/Merged/Prepped_INFECT.csv",
+clinical_data <- read.csv("../Provided Data/Merged/Prepped_INFECT.csv",
                           check.names = FALSE)
 rownames(clinical_data) <- clinical_data$Row.names
 
-gene_data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/common_Gene.txt"
+gene_data <- read.csv("../Provided Data/common_Gene.txt"
                       , sep = '\t', skip = 1)
 
 rownames(gene_data) <- gene_data$ID
@@ -36,20 +35,18 @@ data <- merge(clinical_data, gene_data, by.x = "row.names", by.y = "row.names")
 rownames(data) <- data$'Row.names'
 data <- data[,-c(1:2)]
 
-setwd("~/School/WUR/SSB-80336 - Thesis/Provided data/Merged/")
-write.csv(data, 'Clinical+Gene.csv')
+write.csv(data, '../Provided data/Merged/Clinical+Gene.csv')
 data <- NULL
 
 ###############################################################################
 
 # Clinical (INFECT) data + Gene & Cytokine data
 
-clinical_data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/Merged/Prepped_INFECT.csv",
+clinical_data <- read.csv("../Provided Data/Merged/Prepped_INFECT.csv",
                           check.names = FALSE)
 rownames(clinical_data) <- clinical_data$Row.names
 
-gc_data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/Gene_cytokine_common.txt", 
-                    sep = '\t')
+gc_data <- read.csv("../Provided Data/Gene_cytokine_common.txt", sep = '\t')
 
 rownames(gc_data) <- gc_data$ID
 for (i in 1:nrow(gc_data)) {
@@ -68,19 +65,18 @@ data <- merge(clinical_data, gc_data, by.x = "row.names", by.y = "row.names")
 rownames(data) <- data$Row.names
 data<-data[,-c(1:2)]
 
-setwd("~/School/WUR/SSB-80336 - Thesis/Provided data/Merged/")
-write.csv(data, 'Clinical+Gene+Cytokine.csv')
+write.csv(data, '../Provided data/Merged/Clinical+Gene+Cytokine.csv')
 data <- NULL
 
 ###############################################################################
 
 # Clinical (INFECT) + Cytokine data (OLD)
 
-clinical_data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/Merged/Prepped_INFECT.csv",
+clinical_data <- read.csv("../Provided Data/Merged/Prepped_INFECT.csv",
                           check.names = FALSE)
 rownames(clinical_data) <- clinical_data$Row.names
 
-cytokines <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/Final_Data_Imputed.csv")
+cytokines <- read.csv("../Provided Data/Final_Data_Imputed.csv")
 cytokines <- subset(cytokines, select =-c(DO.NOT.USE..day,DO.NOT.USE.Case_type,
                                 DO.NOT.USE.Microb_a,?..ID_day))
 cytokines <- cytokines[1:251,]
@@ -96,22 +92,21 @@ data <- merge(clinical_data, cytokines, by.x = "row.names", by.y = "PatientID")
 rownames(data) <- data$Row.names
 data <- data[,-c(1:2)]
 
-setwd("~/School/WUR/SSB-80336 - Thesis/Provided data/Merged/")
-write.csv(data, 'Clinical+Cytokine(Old).csv')
+write.csv(data, '../Provided data/Merged/Clinical+Cytokine(Old).csv')
 data <- NULL
 
 ###############################################################################
 
 # Clinical (INFECT) + Cytokine data (NEW)
 
-clinical_data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/Merged/Prepped_INFECT.csv",
+clinical_data <- read.csv("../Provided Data/Merged/Prepped_INFECT.csv",
                           check.names = FALSE)
 rownames(clinical_data) <- clinical_data$Row.names
 clinical_data <- clinical_data[,-1]
 clinical_data <- clinical_data[,-which(colnames(clinical_data)=='Row.names')]
 clinical_data <- clinical_data[,-which(colnames(clinical_data)=='Patient ID')]
 library("readxl")
-cytokines <- read_excel("~/School/WUR/SSB-80336 - Thesis/Provided Data/Cytokines_3Dec2019.xlsx")
+cytokines <- read_excel("../Provided Data/Cytokines_3Dec2019.xlsx")
 cytokines <- cytokines[,-which(colnames(cytokines)=="ID_Day")]
 cytokines <- cytokines[,-which(colnames(cytokines)=="ID_day")]
 cytokines$Case_type[which(cytokines$Case_type == 0)] <- 'Surgical control'
@@ -133,8 +128,7 @@ data <- merge(clinical_data, cytokines, by.x = "row.names", by.y = 'PatientID',
 data <- as.data.frame(data)
 colnames(data)[which(colnames(data)=='Row.names')] <- 'PatientID'
 
-setwd("~/School/WUR/SSB-80336 - Thesis/Provided data/Merged/")
-write.csv(data, 'Clinical+Cytokine(New).csv')
+write.csv(data, '../Provided data/Merged/Clinical+Cytokine(New).csv')
 data <- NULL
 
 ###############################################################################
@@ -142,12 +136,12 @@ data <- NULL
 # Bacterial and human genes
 
 # Load the data
-bact_gene_data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/onlyBactFilt2ndProper.csv", 
+bact_gene_data <- read.csv("../Provided Data/onlyBactFilt2ndProper.csv", 
                            sep = '\t')
-human_gene_data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/filt2ndHumanHgnc.csv", 
+human_gene_data <- read.csv("../Provided Data/filt2ndHumanHgnc.csv", 
                             strip.white = TRUE, stringsAsFactors=FALSE, 
                             colClasses=c('character',rep('numeric', 102)))
-clinic_data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/metadataBiopsies_16s_Classified_ALL.csv")
+clinic_data <- read.csv("../Provided Data/metadataBiopsies_16s_Classified_ALL.csv")
 
 # Change unknown into NA                                          ERROR
 for (sample in 1:nrow(clinic_data)) {
@@ -241,15 +235,14 @@ colnames(data)[which(colnames(data) == 'Microbioogy')] <- 'NSTI_type'
 colnames(data)[which(colnames(data) == 'AmputationOnly')] <- 'Amputation'
 colnames(data)[which(colnames(data) == 'DeathOnly')] <- 'Death'
 
-setwd("~/School/WUR/SSB-80336 - Thesis/Provided data/Merged/")
-write.csv(data, 'Bact+Human_genes.csv')
+write.csv(data, '../Provided data/Merged/Bact+Human_genes.csv')
 data <- NULL
 
 ###############################################################################
 
 # All data
 
-gene_data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/Merged/Bact+Human_genes.csv",
+gene_data <- read.csv("../Provided Data/Merged/Bact+Human_genes.csv",
                       check.names = FALSE)
 rownames(gene_data) <- gene_data[,1]
 gene_data <- gene_data[,-1]
@@ -258,7 +251,7 @@ for (row in 1:nrow(gene_data)) {
   gene_data$SampleID[row] <- substring(rownames(gene_data)[row], 1, 4)
 }
 library("readxl")
-cytokines <- read_excel("~/School/WUR/SSB-80336 - Thesis/Provided Data/Cytokines_3Dec2019.xlsx")
+cytokines <- read_excel("../Provided Data/Cytokines_3Dec2019.xlsx")
 cytokines <- cytokines[,-which(colnames(cytokines)=="ID_Day")]
 cytokines <- cytokines[,-which(colnames(cytokines)=="ID_day")]
 cytokines$Case_type[which(cytokines$Case_type == 0)] <- 'Surgical control'
@@ -284,7 +277,7 @@ for (column in c('Microbiology','Type_L','Microb_a','SOFA2','SOFA3','SOFA4',
   cytokines <- cytokines[,-which(colnames(cytokines)==column)]
 }
 
-# cytokine_data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/Final_Data_Imputed.csv")
+# cytokine_data <- read.csv("../Provided Data/Final_Data_Imputed.csv")
 # cytokine_data <- subset(cytokine_data, select = -c(DO.NOT.USE..day,
 #                                                    DO.NOT.USE.Case_type,
 #                                                    DO.NOT.USE.Microb_a,
@@ -308,18 +301,17 @@ for (column in 1:ncol(data)) {
   data[empty, column] <- NA
 }
 
-setwd("~/School/WUR/SSB-80336 - Thesis/Provided data/Merged/")
-write.csv(data, 'All_data.csv')
+write.csv(data, '../Provided data/Merged/All_data.csv')
 data <- NULL
 
 ###############################################################################
 
 # All + INFECT
 
-all_data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided data/Merged/All_data.csv",
+all_data <- read.csv("../Provided data/Merged/All_data.csv",
                      check.names = FALSE)
 all_data <- all_data[,-1]
-clinical_data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/Merged/Prepped_INFECT.csv",
+clinical_data <- read.csv("../Provided Data/Merged/Prepped_INFECT.csv",
                           check.names = FALSE)
 rownames(clinical_data) <- clinical_data[,1]
 clinical_data <- clinical_data[,-1]
@@ -353,7 +345,6 @@ colnames(data)[which(colnames(data)=='IVIG')] <- 'IVIG (0=no, 1=yes)'
 data <- data[,-which(colnames(data)=='Sex')]
 data <- data[,-which(colnames(data)=='Patient Dead Day 90 (0=no, 1=yes).1')]
 
-setwd("~/School/WUR/SSB-80336 - Thesis/Provided data/Merged/")
-write.csv(data, 'All_data+INFECT.csv')
+write.csv(data, '../Provided data/Merged/All_data+INFECT.csv')
 data <- NULL
 

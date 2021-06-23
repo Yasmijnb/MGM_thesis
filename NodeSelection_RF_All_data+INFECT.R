@@ -14,7 +14,7 @@ library(svMisc)   # For progress, not strictly necessary
 ################################################################################
 
 # Load the data
-data2 <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/Merged/Node table - ALL+INFECT - Lambda x 2.csv")
+data2 <- read.csv("../Provided Data/Merged/Node table - ALL+INFECT - Lambda x 2.csv")
 data2$Type <- rep(0, nrow(data2))
 for (sample in 1:nrow(data2)) {
   if (data2[sample,'color'] == 'orange') {

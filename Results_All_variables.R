@@ -20,12 +20,12 @@ Discrete <- NULL
 # Prepare
 
 colours <- as.vector(rep("Clinical",ncol(data)))
-bact_gene_data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/Merged/Bacterial_gene_data.csv",
+bact_gene_data <- read.csv("../Provided Data/Merged/Bacterial_gene_data.csv",
                            check.names = FALSE)
-human_gene_data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/filt2ndHumanHgnc.csv", 
+human_gene_data <- read.csv("../Provided Data/filt2ndHumanHgnc.csv", 
                             strip.white = TRUE, stringsAsFactors=FALSE,
                             colClasses=c('character',rep('numeric', 102)))
-cytokine_data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/Final_Data_Imputed.csv")
+cytokine_data <- read.csv("../Provided Data/Final_Data_Imputed.csv")
 for (human in human_gene_data$Gene_name) {
   colours[which(colnames(data)==human)] <- 'human gene'
 }
@@ -85,6 +85,4 @@ overview <- as.data.frame(overview)
 # View(overview)
 
 # Save table
-myPath <- "~/School/WUR/SSB-80336 - Thesis/Provided Data/Merged/"
-setwd(myPath)
-write.csv(overview, 'Overview of variables.csv')
+write.csv(overview, '../Provided Data/Merged/Overview of variables.csv')

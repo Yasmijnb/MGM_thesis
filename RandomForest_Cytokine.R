@@ -16,7 +16,7 @@ library(svMisc)   # For progress bar, not strictly necessary
 ## LOAD THE DATA
 
 # Load the data
-data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/Imputed_day0.csv")
+data <- read.csv("../Provided Data/Imputed_day0.csv")
 
 ################################################################################
 ## PREPARE THE DATA

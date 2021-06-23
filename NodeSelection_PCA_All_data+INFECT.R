@@ -15,7 +15,7 @@ library(ggfortify)  # For autoplot options?
 ################################################################################
 
 # Load the data
-data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/Merged/Node table - ALL+INFECT - Delta = 2.csv")
+data <- read.csv("../Provided Data/Merged/Node table - ALL+INFECT - Delta = 2.csv")
 data$Type <- rep(0, nrow(data))
 for (sample in 1:nrow(data)) {
   if (data[sample,'color'] == 'orange') {

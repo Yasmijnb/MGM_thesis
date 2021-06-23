@@ -11,7 +11,7 @@ library(missForest)
 ################################################################################
 
 # Load the data
-data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/Final_Data_Imputed.csv")
+data <- read.csv("../Provided Data/Final_Data_Imputed.csv")
 
 # Remove DO.NOT.USE columns
 data <- subset(data, select =-c(DO.NOT.USE..day,DO.NOT.USE.Case_type,
@@ -297,6 +297,4 @@ significance$BH <- round(significance$BH, 5)
 View(significance)
 
 # Save the table
-# myPath <- "~/School/WUR/SSB-80336 - Thesis/"
-# setwd(myPath)
-# write.csv(significance, 'P-values of cytokines.csv')
+# write.csv(significance, '../P-values of cytokines.csv')

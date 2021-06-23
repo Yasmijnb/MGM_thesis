@@ -17,7 +17,7 @@ library(ggplot2)  # For the plot with mean decease gini
 
 # Load the data
 library("readxl")
-data <- read_excel("~/School/WUR/SSB-80336 - Thesis/Provided Data/Cytokines_3Dec2019.xlsx")
+data <- read_excel("../Provided Data/Cytokines_3Dec2019.xlsx")
 data <- data[,-which(colnames(data)=="ID_Day")]
 data <- data[,-which(colnames(data)=="ID_day")]
 data <- data[,-which(colnames(data)=="day")]
