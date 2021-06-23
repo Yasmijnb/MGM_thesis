@@ -1,3 +1,7 @@
+################################################################################
+
+# Yasmijn Balder
+# 28-07-2020
 
 # Make table as in appendix of helena's paper
 # Run the preprocessing, but the MGM is not necessary. Don't scale the data.
@@ -50,7 +54,7 @@ for (colnum in 1:ncol(data)) {
   Category <- c(Category, colours[colnum])
   m <- mean(data[,colnum])
   s <- sd(data[,colnum])
-  Continuous <- c(Continuous, as.character(paste(signif(m,6), signif(s,6), sep = ' ± ')))
+  Continuous <- c(Continuous, as.character(paste(signif(m,6), signif(s,6), sep = ' ? ')))
   Discrete <- c(Discrete, '-')
 }
 

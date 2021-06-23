@@ -1,3 +1,8 @@
+################################################################################
+
+# Yasmijn Balder
+# 06-07-2020
+
 ###############################################################################
 
 library(stringr)
@@ -77,7 +82,7 @@ rownames(clinical_data) <- clinical_data$Row.names
 
 cytokines <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/Final_Data_Imputed.csv")
 cytokines <- subset(cytokines, select =-c(DO.NOT.USE..day,DO.NOT.USE.Case_type,
-                                DO.NOT.USE.Microb_a,ï..ID_day))
+                                DO.NOT.USE.Microb_a,?..ID_day))
 cytokines <- cytokines[1:251,]
 cytokines <- cytokines[-c(36,175),]
 cytokines <- cytokines[,-which(colnames(cytokines)=="DeathAmputation")]
@@ -283,7 +288,7 @@ for (column in c('Microbiology','Type_L','Microb_a','SOFA2','SOFA3','SOFA4',
 # cytokine_data <- subset(cytokine_data, select = -c(DO.NOT.USE..day,
 #                                                    DO.NOT.USE.Case_type,
 #                                                    DO.NOT.USE.Microb_a,
-#                                                    ï..ID_day,DeathAmputation,
+#                                                    ?..ID_day,DeathAmputation,
 #                                                    incl.amputation,
 #                                                    inf.extremity))
 # cytokine_data <- cytokine_data[1:251,]

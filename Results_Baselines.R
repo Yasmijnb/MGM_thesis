@@ -1,6 +1,12 @@
-# Makes a dataframe with the baselines for each discrete variable
+################################################################################
 
+# Yasmijn Balder
+# 24-06-2020
+
+# Makes a dataframe with the baselines for each discrete variable
 # Run MGM code first
+
+################################################################################
 
 # Create an empty dataframe and give it column names
 baselines <- as.data.frame(rep(0, ncol(Annotation)))

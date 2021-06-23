@@ -1,3 +1,8 @@
+################################################################################
+
+# Yasmijn Balder
+# 04-09-2020
+
 # Predict with random forest
 
 ###############################################################################
@@ -92,7 +97,7 @@ colnames(pat.char) <- c('N', '%')
 rownames(pat.char) <- c('Amputation', 'Death', 'Septic shock', 'Sex (male)',
                         'I', 'II', 'Non-NSTI', 'Cellulitis', 'Surgical control')
 pat.char
-print(paste(round(mean(data$Age),2), '±', round(sd(data$Age),2)))
+print(paste(round(mean(data$Age),2), '?', round(sd(data$Age),2)))
 
 ################################################################################
 

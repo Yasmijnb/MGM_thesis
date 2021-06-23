@@ -1,6 +1,11 @@
 ################################################################################
 
-# Test for nesting by looking at the joint probability conclusion s
+# Yasmijn Balder
+# 14-09-2020
+
+# Test for nesting by looking at the joint probability conclusions
+
+################################################################################
 library(arsenal)    # For comparing data frames
 
 ################################################################################
