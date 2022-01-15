@@ -1,4 +1,4 @@
-myPath <- "C:/Users/yasmi/Downloads/"
+myPath <- "../Provided Data/"
 Single_cell_Tirosh <- read.csv(paste0(myPath,"GSE72056_melanoma_single_cell_revised_v2.txt"), sep = "\t")
 # Remove NAs from the data
 #data <- na.omit(data)
@@ -44,7 +44,7 @@ D[1:7,1:3]
 
 #save matrices as npy-files in Python-script folder (here folder "MGM_algorithm") for uploading in Python:
 library(RcppCNPy)
-myPath <- "~/School/WUR/SSB-80336 - Thesis/Try 1/"
+myPath <- "../Try 1/"
 setwd(paste0(myPath,"MGM_algorithm/"))
 #continuous variable matrix with rows = samples, columns = genes:
 npySave("Xsc.npy",t(Single_cell_Tirosh_scaled))

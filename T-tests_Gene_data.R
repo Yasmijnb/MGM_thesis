@@ -248,6 +248,4 @@ significance$BH <- round(significance$BH, 5)
 View(significance)
 
 # Save the table
-# myPath <- "~/School/WUR/SSB-80336 - Thesis/"
-# setwd(myPath)
-# write.csv(significance, 'P-values of genes.csv')
+# write.csv(significance, '../P-values of genes.csv')

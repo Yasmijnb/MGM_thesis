@@ -11,7 +11,7 @@ library(missForest)
 ################################################################################
 
 # Load the data
-data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/Gene_cytokine_common.txt", 
+data <- read.csv("../Provided Data/Gene_cytokine_common.txt", 
                  sep = '\t')
 
 # See which columns are non-numeric
@@ -73,7 +73,7 @@ pat.char <- rbind(c(n.male, p.male),
 colnames(pat.char) <- c('Median / N', 'Quantile / %')
 rownames(pat.char) <- c('Sex (male)', 'Septic shock', 'Amputation', 'Death')
 pat.char
-print(paste(round(mean(data$Age),2), '±', round(sd(data$Age),2)))
+print(paste(round(mean(data$Age),2), '?', round(sd(data$Age),2)))
 
 ################################################################################
 
@@ -115,7 +115,7 @@ colnames(D) <- colnames_D
 ################################################################################
 
 # Save matrices as npy-files in Python-script folder (here: "MGM_algorithm")
-myPath <- "~/School/WUR/SSB-80336 - Thesis/Try 1/MGM_algorithm/"
+myPath <- "../Try 1/MGM_algorithm/"
 setwd(myPath)
 # Continuous variable matrix with rows = samples, columns = genes:
 npySave("Xsc.npy", as.matrix(data))
@@ -161,9 +161,9 @@ adj_matrix <- rbind(cbind(B0,t(Rho0)), cbind(Rho0,Phi0))
 colnames(adj_matrix) <- rownames(adj_matrix) <- c(colnames(data),colnames(D))
 
 # Get the cytokine and gene names
-cytokines <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/Final_Data_Imputed.csv")
+cytokines <- read.csv("../Provided Data/Final_Data_Imputed.csv")
 cyto.names <- colnames(cytokines)
-genes <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/common_Gene.txt", 
+genes <- read.csv("../Provided Data/common_Gene.txt", 
                   sep = '\t', skip = 1)
 gene.names <- colnames(genes)
 

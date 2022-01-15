@@ -10,7 +10,7 @@ library(missForest)
 ################################################################################
 
 # Load the data
-data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/Merged/Bact+Human_genes.csv",
+data <- read.csv("../Provided Data/Merged/Bact+Human_genes.csv",
                  check.names = FALSE)
 rownames(data) <- data[,1]
 data <- data[,-1]
@@ -141,7 +141,7 @@ colnames(D) <- colnames_D
 ################################################################################
 
 # Save matrices as npy-files in Python-script folder (here: "MGM_algorithm")
-myPath <- "~/School/WUR/SSB-80336 - Thesis/Try 1/MGM_algorithm/"
+myPath <- "../Try 1/MGM_algorithm/"
 setwd(myPath)
 # Continuous variable matrix with rows = samples, columns = genes:
 npySave("Xsc.npy", as.matrix(data))
@@ -194,10 +194,10 @@ shapes <- as.vector(c(rep("square",ncol(data)), rep("circle",ncol(D))))
 colours <- as.vector(c(rep("#E69F00",ncol(data)), rep("#56B4E9",ncol(D))))
 
 # Get the column names
-human_gene_data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/filt2ndHumanHgnc.csv", 
+human_gene_data <- read.csv("../Provided Data/filt2ndHumanHgnc.csv", 
                             strip.white = TRUE, stringsAsFactors=FALSE,
                             colClasses=c('character',rep('numeric', 102)))
-bact_gene_data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/Merged/Bacterial_gene_data.csv",
+bact_gene_data <- read.csv("../Provided Data/Merged/Bacterial_gene_data.csv",
                            check.names = FALSE)
 
 # Also change the shape and colour of continuous clinical parameters

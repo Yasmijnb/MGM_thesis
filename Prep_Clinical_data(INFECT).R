@@ -270,5 +270,5 @@ data$`Temperature >38 Degrees Celcius (0=no, 1=yes) Day 1`
 ###############################################################################
 
 # Save the data
-setwd("~/School/WUR/SSB-80336 - Thesis/Provided data/Merged/")
+setwd("../Provided data/Merged/")
 write.csv(data, 'Prepped_INFECT.csv')

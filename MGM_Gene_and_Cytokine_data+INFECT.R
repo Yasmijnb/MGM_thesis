@@ -12,7 +12,7 @@ library(missForest)
 ## LOAD THE DATA
 
 # Load the data
-data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/Merged/Clinical+Gene+Cytokine.csv",
+data <- read.csv("../Provided Data/Merged/Clinical+Gene+Cytokine.csv",
                  check.names = FALSE)
 rownames(data) <- data$Row.names
 data <- data[,-which(colnames(data)=='')]
@@ -56,7 +56,7 @@ colnames(pat.char) <- c('N', '%')
 rownames(pat.char) <- c('Sex (male)', 'Septic shock', 'Amputation', 'Death')
 pat.char
 summary(data$`Age (years)`)
-print(paste(round(mean(data$`Age (years)`),2), '±', round(sd(data$`Age (years)`),2)))
+print(paste(round(mean(data$`Age (years)`),2), '?', round(sd(data$`Age (years)`),2)))
 
 ################################################################################
 ## SPLIT THE DATA INTO DISCRETE AND CONTINUOUS
@@ -225,7 +225,7 @@ colnames(D)[(ncol(D)-10):ncol(D)]
 ## RUN THE SIMULATION
 
 # Save matrices as npy-files in Python-script folder (here: "MGM_algorithm")
-myPath <- "~/School/WUR/SSB-80336 - Thesis/Try 1/MGM_algorithm/"
+myPath <- "../Try 1/MGM_algorithm/"
 setwd(myPath)
 # Continuous variable matrix with rows = samples, columns = genes:
 npySave("Xsc.npy", as.matrix(data))
@@ -279,9 +279,9 @@ shapes <- as.vector(c(rep("circle",ncol(data)), rep("circle",ncol(D))))
 colours <- as.vector(c(rep("#56B4E9",ncol(data)), rep("#56B4E9",ncol(D))))
 
 # Get the cytokine and gene names
-cytokines <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/Final_Data_Imputed.csv")
+cytokines <- read.csv("../Provided Data/Final_Data_Imputed.csv")
 cyto.names <- colnames(cytokines)
-genes <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/common_Gene.txt", 
+genes <- read.csv("../Provided Data/common_Gene.txt", 
                   sep = '\t', skip = 1)
 gene.names <- colnames(genes)
 # Colour the genes and cytokines cyan and orange

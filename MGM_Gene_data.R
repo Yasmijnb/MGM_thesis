@@ -11,7 +11,7 @@ library(missForest)
 ################################################################################
 
 # Load the data
-data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/common_Gene.txt"
+data <- read.csv("../Provided Data/common_Gene.txt"
                  , sep = '\t', skip = 1)
 data <- data[,-which(colnames(data)=='ID')]
 
@@ -69,7 +69,7 @@ pat.char <- rbind(c(n.male, p.male),
 colnames(pat.char) <- c('Median / N', 'Quantile / %')
 rownames(pat.char) <- c('Sex (male)', 'Septic shock', 'Amputation', 'Death')
 pat.char
-print(paste(round(mean(data$Age),2), '±', round(sd(data$Age),2)))
+print(paste(round(mean(data$Age),2), '?', round(sd(data$Age),2)))
 
 ################################################################################
 
@@ -112,7 +112,7 @@ colnames(D) <- colnames_D
 ################################################################################
 
 # Save matrices as npy-files in Python-script folder (here: "MGM_algorithm")
-myPath <- "~/School/WUR/SSB-80336 - Thesis/Try 1/MGM_algorithm/"
+myPath <- "../Try 1/MGM_algorithm/"
 setwd(myPath)
 # Continuous variable matrix with rows = samples, columns = genes:
 npySave("Xsc.npy", as.matrix(data))

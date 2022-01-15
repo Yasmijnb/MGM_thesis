@@ -12,7 +12,7 @@ library(missForest)
 ## LOAD THE DATA
 
 # Load the data
-data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/Merged/Prepped_INFECT.csv",
+data <- read.csv("../Provided Data/Merged/Prepped_INFECT.csv",
                  check.names = FALSE)
 rownames(data) <- data$Row.names
 data <- data[,-c(1:3)]
@@ -51,7 +51,7 @@ pat.char <- rbind(c(n.male, p.male),
 colnames(pat.char) <- c('N', '%')
 rownames(pat.char) <- c('Sex (male)', 'Septic shock', 'Amputation', 'Death')
 pat.char
-print(paste(round(mean(data$`Age (years)`),2), '±', round(sd(data$`Age (years)`),2)))
+print(paste(round(mean(data$`Age (years)`),2), '?', round(sd(data$`Age (years)`),2)))
 
 ################################################################################
 ## SPLIT THE DATA INTO DISCRETE AND CONTINUOUS
@@ -218,7 +218,7 @@ colnames(D)[(ncol(D)-10):ncol(D)]
 ## RUN THE SIMULATION
 
 # Save matrices as npy-files in Python-script folder (here: "MGM_algorithm")
-myPath <- "~/School/WUR/SSB-80336 - Thesis/Try 1/MGM_algorithm/"
+myPath <- "../Try 1/MGM_algorithm/"
 setwd(myPath)
 # Continuous variable matrix with rows = samples, columns = genes:
 npySave("Xsc.npy", as.matrix(data))

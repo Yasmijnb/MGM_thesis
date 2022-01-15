@@ -12,7 +12,7 @@ library("readxl")           # For reading the cytokine excel file
 ################################################################################
 
 # Load the data
-data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/Merged/All_data+INFECT.csv",
+data <- read.csv("../Provided Data/Merged/All_data+INFECT.csv",
                       check.names = FALSE, row.names = 1)
 data <- data[,-which(colnames(data)=='Patient ID')]
 
@@ -151,7 +151,7 @@ colnames(pat.char) <- c('N', '%')
 rownames(pat.char) <- c('Amputation', 'Death', 'Septic shock', 'Sex (male)',
                         'Mono', 'Poly')
 pat.char
-print(paste(round(mean(data$`Age (years)`),2), '±', round(sd(data$`Age (years)`),2)))
+print(paste(round(mean(data$`Age (years)`),2), '?', round(sd(data$`Age (years)`),2)))
 
 ################################################################################
 
@@ -266,7 +266,7 @@ colnames(D) <- colnames_D
 ################################################################################
 
 # Save matrices as npy-files in Python-script folder (here: "MGM_algorithm")
-myPath <- "~/School/WUR/SSB-80336 - Thesis/Try 1/MGM_algorithm/"
+myPath <- "../Try 1/MGM_algorithm/"
 setwd(myPath)
 # Continuous variable matrix with rows = samples, columns = genes:
 npySave("Xsc.npy", as.matrix(data))
@@ -319,12 +319,12 @@ shapes <- as.vector(c(rep("circle",ncol(data)), rep("square",ncol(D))))
 colours <- as.vector(c(rep("#56B4E9",ncol(data)), rep("#56B4E9",ncol(D))))
 
 # Get the names
-bact_gene_data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/Merged/Bact+Human_genes.csv",
+bact_gene_data <- read.csv("../Provided Data/Merged/Bact+Human_genes.csv",
                            check.names = FALSE)
-human_gene_data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/filt2ndHumanHgnc.csv", 
+human_gene_data <- read.csv("../Provided Data/filt2ndHumanHgnc.csv", 
                             strip.white = TRUE, stringsAsFactors=FALSE,
                             colClasses=c('character',rep('numeric', 102)))
-cytokine_data <- read_excel("~/School/WUR/SSB-80336 - Thesis/Provided Data/Cytokines_3Dec2019.xlsx")
+cytokine_data <- read_excel("../Provided Data/Cytokines_3Dec2019.xlsx")
 
 # Colour the human and bact genes
 for (bact in colnames(bact_gene_data)) {

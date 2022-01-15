@@ -269,9 +269,7 @@ significance$BH <- round(significance$BH, 5)
 View(significance)
 
 # Save the table
-# myPath <- "~/School/WUR/SSB-80336 - Thesis/"
-# setwd(myPath)
-# write.csv(significance, 'P-values of genes+cytokines.csv')
+# write.csv(significance, '../P-values of genes+cytokines.csv')
 
 # p1 <- hist(type_0$DeathOnly, breaks = 2)
 # p2 <- hist(type_1$DeathOnly, breaks = 2)

@@ -14,7 +14,7 @@ library(RCy3)
 
 # Load the data
 library("readxl")
-data <- read_excel("~/School/WUR/SSB-80336 - Thesis/Provided Data/Cytokines_3Dec2019.xlsx")
+data <- read_excel("../Provided Data/Cytokines_3Dec2019.xlsx")
 data <- as.data.frame(data)
 data <- data[,-which(colnames(data)=="ID_Day")]
 data <- data[,-which(colnames(data)=="ID_day")]
@@ -142,7 +142,7 @@ colnames(D) <- colnames_D
 ################################################################################
 
 # Save matrices as npy-files in Python-script folder (here: "MGM_algorithm")
-myPath <- "~/School/WUR/SSB-80336 - Thesis/Try 1/MGM_algorithm/"
+myPath <- "../Try 1/MGM_algorithm/"
 setwd(myPath)
 # Continuous variable matrix with rows = samples, columns = genes:
 npySave("Xsc.npy", as.matrix(data))

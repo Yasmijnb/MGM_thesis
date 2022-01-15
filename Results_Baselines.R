@@ -30,7 +30,7 @@ for (i in 1:ncol(Annotation)) {
 View(baselines)
 
 # Save the table as a csv file
-myPath <- "~/School/WUR/SSB-80336 - Thesis/Provided Data/Merged/"
+myPath <- "../Provided Data/Merged/"
 setwd(myPath)
 write.csv(baselines, 'Baselines_All+INFECT.csv')
 

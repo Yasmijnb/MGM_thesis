@@ -10,9 +10,9 @@ library(missForest)
 ################################################################################
 
 # Load the data
-gene_data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/onlyBactFilt2ndProper.csv", 
+gene_data <- read.csv("../Provided Data/onlyBactFilt2ndProper.csv", 
                       sep = '\t')
-clinic_data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/metadataBiopsies_16s_Classified_ALL.csv")
+clinic_data <- read.csv("../Provided Data/metadataBiopsies_16s_Classified_ALL.csv")
 
 # Use the genes as row names
 rownames(gene_data) <- gene_data[,1]
@@ -183,7 +183,7 @@ colnames(D) <- colnames_D
 ################################################################################
 
 # Save matrices as npy-files in Python-script folder (here: "MGM_algorithm")
-myPath <- "~/School/WUR/SSB-80336 - Thesis/Try 1/MGM_algorithm/"
+myPath <- "../Try 1/MGM_algorithm/"
 setwd(myPath)
 # Continuous variable matrix with rows = samples, columns = genes:
 npySave("Xsc.npy", as.matrix(data))

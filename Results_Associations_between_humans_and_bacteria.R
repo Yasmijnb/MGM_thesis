@@ -16,7 +16,7 @@ library(ggplot2)            # For making nice plots
 # Run the MGM of the preferred data set first
 
 # Obtain all edges (don't remove disconnected nodes)
-myPath <- "~/School/WUR/SSB-80336 - Thesis/Try 1/MGM_algorithm/"
+myPath <- "../Try 1/MGM_algorithm/"
 setwd(paste0(myPath,"temp/"))
 B0 = npyLoad("B_0.npy")
 Rho0 = npyLoad("Rho_0.npy")
@@ -75,12 +75,12 @@ for (sample in 1:nrow(ranked.adj_matrix)) {
 ################################################################################
 
 # Get the names
-bact_gene_data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/Merged/Bacterial_gene_data.csv", 
+bact_gene_data <- read.csv("../Provided Data/Merged/Bacterial_gene_data.csv", 
                            check.names = FALSE)
-human_gene_data <- read.csv("~/School/WUR/SSB-80336 - Thesis/Provided Data/filt2ndHumanHgnc.csv", 
+human_gene_data <- read.csv("../Provided Data/filt2ndHumanHgnc.csv", 
                             strip.white = TRUE, stringsAsFactors=FALSE,
                             colClasses=c('character',rep('numeric', 102)))
-cytokine_data <- read_excel("~/School/WUR/SSB-80336 - Thesis/Provided Data/Cytokines_3Dec2019.xlsx")
+cytokine_data <- read_excel("../Provided Data/Cytokines_3Dec2019.xlsx")
 
 # Make a selection 
 to_keep <- NULL
