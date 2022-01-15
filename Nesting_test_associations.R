@@ -6,14 +6,17 @@
 # Test for nesting by looking at the joint probability conclusions
 
 ################################################################################
+
 library(arsenal)    # For comparing data frames
 
 ################################################################################
 
 # Obtain adjacency matrices
 
-small <- read.csv("../Provided Data/Merged/small", check.names = FALSE, row.names = 1)
-big <- read.csv("../Provided Data/Merged/big.csv", check.names = FALSE, row.names = 1)
+small <- read.csv("../Provided Data/Merged/small", check.names = FALSE, 
+                  row.names = 1)
+big <- read.csv("../Provided Data/Merged/big.csv", check.names = FALSE, 
+                row.names = 1)
 
 # Obtain separate files (don't remove disconnected nodes)
 B0 = npyLoad("B_0.npy")
